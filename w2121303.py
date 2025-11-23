@@ -63,9 +63,21 @@ def build_filename(city, year):
 # ---------------------- TASK B PROCESSING ------------------------
 
 def calculate_outcomes():
-    # loop through data_list and calculate all 10 outcomes
-    # return them as a dictionary or list
-    pass
+    """Process all 10 outcomes from the coursework"""
+    # YOU will fill this part later
+    outcomes = {
+        "total_flights": 0,
+        "terminal2": 0,
+        "under600": 0,
+        "airfrance": 0,
+        "below15": 0,
+        "ba_avg": 0,
+        "ba_percent": 0,
+        "af_delay_percent": 0,
+        "rain_hours": 0,
+        "least_common_destinations": []
+    }
+    return outcomes
 
 def display_outcomes(outcomes):
     # print the formatted results exactly like the brief
