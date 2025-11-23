@@ -13,42 +13,77 @@ from graphics import *
 import csv
 import math
 
-data_list = []   # data_list An empty list to load and hold data from csv file
+data_list = []
 
 def load_csv(CSV_chosen):
-    """
-    This function loads any csv file by name (set by the variable 'selected_data_file') into the list "data_list"
-    YOU DO NOT NEED TO CHANGE THIS BLOCK OF CODE
-    """
     with open(CSV_chosen, 'r') as file:
         csvreader = csv.reader(file)
         header = next(csvreader)
         for row in csvreader:
             data_list.append(row)
 
+# ---------------------- TASK A FUNCTIONS -------------------------
 
+def get_city_code():
+    # ask user, validate, convert to uppercase, return code
+    pass
 
-#************************************************************************************************************
+def get_year():
+    # ask user, validate, return year string
+    pass
 
-#EDIT THE CODE BELOW TO COMPLETE YOUR SUBMISSION
+def build_filename(city, year):
+    return city + year + ".csv"
 
-selected_data_file="LHR2025.csv" #hard coded csv name to be replaced with your dynamically created filename
-load_csv(selected_data_file)     #calls the function "load_csv" sending the variable 'selected_data_file" as a parameter
+# ---------------------- TASK B PROCESSING ------------------------
 
-#Some Example code queries to be replaced with those required by the brief. Compare these outputs to the supplied CSV files
+def calculate_outcomes():
+    # loop through data_list and calculate all 10 outcomes
+    # return them as a dictionary or list
+    pass
 
-print (f"The current file name is {selected_data_file}")
-print ("")
-print (f"First row of data_list is data_list[0] -> {data_list[0]}")
-print ("")
-print (f"Second item of the first row is flight number, data_list[0][1]      -> {data_list[0][1]}")
-print ("")
-print (f"Third item of the second row is scheduled depature, data_list[1][2] -> {data_list[1][2]}")
+def display_outcomes(outcomes):
+    # print the formatted results exactly like the brief
+    pass
 
-  
+# ---------------------- TASK C SAVE RESULTS ----------------------
 
+def save_results(outcomes, airport_name, year):
+    # append to results.txt
+    pass
 
+# ---------------------- TASK D HISTOGRAM -------------------------
 
+def get_airline_code():
+    # input + validation
+    pass
 
+def plot_histogram(airline_code, airport_name, year):
+    # use graphics.py to draw histogram
+    pass
 
+# ---------------------- TASK E LOOPING ---------------------------
 
+def main():
+    while True:
+        data_list.clear()
+
+        city = get_city_code()
+        year = get_year()
+        filename = build_filename(city, year)
+        load_csv(filename)
+
+        outcomes = calculate_outcomes()
+        display_outcomes(outcomes)
+
+        save_results(outcomes, city, year)
+
+        airline = get_airline_code()
+        plot_histogram(airline, city, year)
+
+        again = input("Do you want to select a new data file? Y/N: ").upper()
+        if again == "N":
+            print("Thank you. End of run")
+            break
+
+main()
