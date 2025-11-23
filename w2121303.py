@@ -80,8 +80,10 @@ def calculate_outcomes():
     return outcomes
 
 def display_outcomes(outcomes):
-    # print the formatted results exactly like the brief
-    pass
+    """Nicely prints the result in correct coursework format"""
+    print("*********************************************************************************")
+    print(f"File {filename} selected - Planes departing {airport_name} {year}")
+    print("*********************************************************************************")
 
 # ---------------------- TASK C SAVE RESULTS ----------------------
 
