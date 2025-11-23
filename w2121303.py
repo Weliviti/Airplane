@@ -88,15 +88,25 @@ def display_outcomes(outcomes):
 # ---------------------- TASK C SAVE RESULTS ----------------------
 
 def save_results(outcomes, airport_name, year):
-    # append to results.txt
-    pass
+    """Appends current results to results.txt"""
+    with open("results.txt", "a") as f:
+        f.write(f"\nResults for {airport_name} - {year}\n")
+        f.write("-------------------------------------\n")
 
 # ---------------------- TASK D HISTOGRAM -------------------------
 
 def get_airline_code():
-    # input + validation
-    pass
+    """Asks user for airline code and validates it"""
+    valid_airlines = ["BA","AF","AY","KL","SK","TP","TK","W6","U2","FR","A3","SN","EK","QR","IB","LH"]
 
+    while True:
+        code = input("Enter a two-character Airline code to plot a histogram: ").upper()
+
+        if code not in valid_airlines:
+            print("Unavailable Airline code please try again.")
+            continue
+
+        return code
 def plot_histogram(airline_code, airport_name, year):
     # use graphics.py to draw histogram
     pass
