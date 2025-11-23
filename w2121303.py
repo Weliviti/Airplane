@@ -117,19 +117,26 @@ def main():
     while True:
         data_list.clear()
 
-        city = get_city_code()
+        # Task A
+        airport = get_airport_code()
         year = get_year()
-        filename = build_filename(city, year)
+        filename = build_filename(airport, year)
+
         load_csv(filename)
 
+        # Task B
         outcomes = calculate_outcomes()
-        display_outcomes(outcomes)
+        airport_full_name = ""   # YOU will map code to full name later
+        display_outcomes(outcomes, airport_full_name, year, filename)
 
-        save_results(outcomes, city, year)
+        # Task C
+        save_results(outcomes, airport_full_name, year)
 
-        airline = get_airline_code()
-        plot_histogram(airline, city, year)
+        # Task D
+        airline_code = get_airline_code()
+        plot_histogram(airline_code, airport_full_name, year)
 
+        # Task E
         again = input("Do you want to select a new data file? Y/N: ").upper()
         if again == "N":
             print("Thank you. End of run")
