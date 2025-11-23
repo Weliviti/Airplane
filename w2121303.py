@@ -25,8 +25,21 @@ def load_csv(CSV_chosen):
 # ---------------------- TASK A FUNCTIONS -------------------------
 
 def get_city_code():
-    # ask user, validate, convert to uppercase, return code
-    pass
+    """Asks for and validates 3-letter airport code"""
+    valid_codes = ["LHR","MAD","CDG","IST","AMS","LIS","FRA","FCO","MUC","BCN"]
+
+    while True:
+        code = input("Please enter a three-letter city code: ").upper()
+
+        if len(code) != 3:
+            print("Wrong code length - please enter a three-letter city code")
+            continue
+        
+        if code not in valid_codes:
+            print("Unavailable city code - please enter a valid city code")
+            continue
+
+        return code
 
 def get_year():
     # ask user, validate, return year string
