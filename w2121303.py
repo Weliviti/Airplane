@@ -42,8 +42,20 @@ def get_city_code():
         return code
 
 def get_year():
-    # ask user, validate, return year string
-    pass
+    """Asks for and validates 4-digit year"""
+    while True:
+        year = input("Please enter the year required in the format YYYY: ")
+
+        if not year.isdigit() or len(year) != 4:
+            print("Wrong data type - please enter a four-digit year value")
+            continue
+
+        year_int = int(year)
+        if year_int < 2000 or year_int > 2025:
+            print("Out of range - please enter a value from 2000 to 2025")
+            continue
+
+        return year
 
 def build_filename(city, year):
     return city + year + ".csv"
